@@ -3,3 +3,4 @@ import 'package:flutter_svg/svg.dart';
 
 part 'welcome_screen.dart';
 part 'login_screen.dart';
+part 'register_screen.dart';
