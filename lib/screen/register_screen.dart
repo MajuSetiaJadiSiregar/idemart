@@ -1,6 +1,8 @@
 part of 'screen.dart';
 
 class RegisterScreen extends StatelessWidget {
+
+  final UserRegisterController userRegisterController = Get.put(UserRegisterController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -77,8 +79,9 @@ class RegisterScreen extends StatelessWidget {
                                   border: Border.all(color: Colors.blueAccent),
                                   color: Colors.white
                               ),
-                              child: const TextField(
-                                decoration: InputDecoration(
+                              child: TextField(
+                                controller: userRegisterController.firstname,
+                                decoration: const InputDecoration(
                                   border: InputBorder.none,
                                 ),
                               ),
@@ -93,8 +96,9 @@ class RegisterScreen extends StatelessWidget {
                                   border: Border.all(color: Colors.blueAccent),
                                   color: Colors.white
                               ),
-                              child: const TextField(
-                                decoration: InputDecoration(
+                              child: TextField(
+                                controller: userRegisterController.lastname,
+                                decoration: const InputDecoration(
                                   border: InputBorder.none,
                                 ),
                               ),
@@ -120,8 +124,9 @@ class RegisterScreen extends StatelessWidget {
                           border: Border.all(color: Colors.blueAccent),
                           color: Colors.white
                       ),
-                      child: const TextField(
-                        decoration: InputDecoration(
+                      child: TextField(
+                        controller: userRegisterController.username,
+                        decoration: const InputDecoration(
                           border: InputBorder.none,
                         ),
                       ),
@@ -144,8 +149,9 @@ class RegisterScreen extends StatelessWidget {
                           border: Border.all(color: Colors.blueAccent),
                           color: Colors.white
                       ),
-                      child: const TextField(
-                        decoration: InputDecoration(
+                      child: TextField(
+                        controller: userRegisterController.password,
+                        decoration: const InputDecoration(
                           border: InputBorder.none,
                         ),
                       ),
@@ -194,7 +200,7 @@ class RegisterScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(12), // <-- Radius
                           ),
                         ),
-                        onPressed: (){print("test");},
+                        onPressed: (){userRegisterController.handleRegisterUser();},
                         child: Text("Register"),
                       ),
                     ),

@@ -1,7 +1,7 @@
 part of "model.dart";
 
 class RegisterModel {
-  String status;
+  bool status;
   String message;
 
   RegisterModel({required this.status, required this.message});
@@ -12,7 +12,7 @@ class RegisterModel {
 }
 
 class RegisterPasswordErrorModel {
-  String status;
+  bool status;
   String data;
 
   RegisterPasswordErrorModel({required this.status, required this.data});

@@ -10,7 +10,10 @@ class UserRegisterController extends GetxController {
   void handleRegisterUser() async{
     try{
       var response = await UserService.registerUser(firstname.text, lastname.text, username.text, password.text);
-      print(response.value);
+      if(response.value.message != null){
+        Get.snackbar("Information", (response.value?.message != null) ? response.value.message.toString() : "Testing",  backgroundColor: Colors.green);
+      }
+
     }catch(e){
       print(e);
     }

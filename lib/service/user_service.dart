@@ -19,7 +19,7 @@ class UserService {
       case 200:
         return ApiReturnValue(value: RegisterModel.fromJson(jsonDecode(response.body)));
       case 400:
-        return ApiReturnValue(value: RegisterPasswordErrorModel.fromJson(jsonDecode(response.body)));
+        return ApiReturnValue(value: RegisterModel.fromJson(jsonDecode(response.body)));
       default:
         throw Exception('Failed to create album.');
     }
