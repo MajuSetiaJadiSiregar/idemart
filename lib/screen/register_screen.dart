@@ -34,7 +34,7 @@ class RegisterScreen extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      margin: const EdgeInsets.symmetric(vertical: 8),
+                      margin: const EdgeInsets.only(top: 54),
                       child: Row(
                         children: [
                           Expanded(
