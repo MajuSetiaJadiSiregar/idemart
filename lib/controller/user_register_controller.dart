@@ -13,9 +13,22 @@ class UserRegisterController extends GetxController {
       if(response.value.message != null){
         Get.snackbar("Information", (response.value?.message != null) ? response.value.message.toString() : "Testing",  backgroundColor: Colors.green);
       }
+      clearInput();
 
     }catch(e){
       print(e);
     }
+  }
+
+  void handleGotoLogin(){
+    clearInput();
+    Get.to(() => LoginScreen());
+  }
+
+  void clearInput(){
+    firstname.clear();
+    lastname.clear();
+    username.clear();
+    password.clear();
   }
 }

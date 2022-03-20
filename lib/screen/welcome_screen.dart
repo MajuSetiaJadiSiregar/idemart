@@ -1,6 +1,7 @@
 part of 'screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
+  final WelcomeController welcomeController = Get.put(WelcomeController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +31,7 @@ class WelcomeScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.max,
-            children: [_appLogo(), _header(context), _actionButton(context)],
+            children: [_appLogo(), _header(context), _actionButton(context, ()=> welcomeController.handleGotoLogin(), () => welcomeController.handleGotoRegister())],
           ),
         ),
       ),
@@ -89,7 +90,7 @@ class WelcomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _actionButton(BuildContext context){
+  Widget _actionButton(BuildContext context, Function onPressLogin, Function onPressRegister){
     return Padding(
       padding: const EdgeInsetsDirectional.fromSTEB(30, 30, 30, 0),
       child: Column(
@@ -99,13 +100,13 @@ class WelcomeScreen extends StatelessWidget {
             margin: const EdgeInsets.symmetric(horizontal: 1),
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: (){print("test");},
+              onPressed: (){onPressLogin();},
               child: Text("Masuk"),
             ),
           ),
           const SizedBox(height: 8,),
           GestureDetector(
-            onTap: (){},
+            onTap: (){onPressRegister();},
             child: Text(
               'Daftar',
               style: Theme.of(context).textTheme.bodyText1?.copyWith(

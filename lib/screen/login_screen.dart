@@ -1,6 +1,8 @@
 part of 'screen.dart';
 
 class LoginScreen extends StatelessWidget {
+
+  final UserLoginController userLoginController = Get.put(UserLoginController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,8 +52,9 @@ class LoginScreen extends StatelessWidget {
                           border: Border.all(color: Colors.blueAccent),
                           color: Colors.white
                       ),
-                      child: const TextField(
-                        decoration: InputDecoration(
+                      child: TextField(
+                        controller: userLoginController.username,
+                        decoration: const InputDecoration(
                           border: InputBorder.none,
                         ),
                       ),
@@ -74,8 +77,9 @@ class LoginScreen extends StatelessWidget {
                           border: Border.all(color: Colors.blueAccent),
                           color: Colors.white
                       ),
-                      child: const TextField(
-                        decoration: InputDecoration(
+                      child: TextField(
+                        controller: userLoginController.password,
+                        decoration: const InputDecoration(
                           border: InputBorder.none,
                         ),
                       ),
@@ -107,8 +111,8 @@ class LoginScreen extends StatelessWidget {
                           style: TextStyle(color: Colors.black, fontFamily: "Poppins"),
                         ),
                         GestureDetector(
-                      onTap: (){},
-                      child: Text(
+                      onTap: (){userLoginController.handleGotoRegister();},
+                      child: const Text(
                         "DAFTAR",
                         style: TextStyle(
                           color: Color(0xFF239BD8),
@@ -133,8 +137,8 @@ class LoginScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(12), // <-- Radius
                           ),
                         ),
-                        onPressed: (){print("test");},
-                        child: Text("Masuk"),
+                        onPressed: (){userLoginController.handleLoginUser();},
+                        child: const Text("Masuk"),
                       ),
                     ),
                   ],

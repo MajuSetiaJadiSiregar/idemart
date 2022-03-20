@@ -174,7 +174,7 @@ class RegisterScreen extends StatelessWidget {
                           style: TextStyle(color: Colors.black, fontFamily: "Poppins"),
                         ),
                         GestureDetector(
-                          onTap: (){},
+                          onTap: (){userRegisterController.handleGotoLogin();},
                           child: const Text(
                             "Masuk",
                             style: TextStyle(
