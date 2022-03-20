@@ -6,7 +6,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: (userLoginController.loginSuccess.value.userLogin.role == 0) ? _bodyAdmin(context) : _body(context)
+      body: (userLoginController.user.value.userLogin.role == 0) ? _bodyAdmin(context) : _body(context)
     );
   }
 
@@ -483,7 +483,7 @@ class HomeScreen extends StatelessWidget {
                   onTap: (){},
                   child: Obx((){
                     return Text(
-                      'Hai, ${userLoginController.loginSuccess.value.userLogin.firstname}',
+                      'Hai, ${userLoginController.user.value.userLogin.firstname}',
                       style:Theme.of(context).textTheme.bodyText1?.copyWith(
                         fontFamily: 'Poppins',
                         color: Colors.white,

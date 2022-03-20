@@ -2,7 +2,7 @@ part of "controller.dart";
 
 class UserLoginController extends GetxController {
 
-  final loginSuccess = LoginSuccessModel(status: false, message: "", token: "", userLogin: UserLogin(id:"", firstname: "", lastname: "", phone: "", email: "", username: "", profesion: "", profile_picuter: "", role: "")).obs;
+  final user = LoginSuccessModel(status: false, message: "", token: "", userLogin: UserLogin(id:"", firstname: "", lastname: "", phone: "", email: "", username: "", profesion: "", profile_picuter: "", role: "")).obs;
 
 
   final TextEditingController username = TextEditingController();
@@ -14,8 +14,8 @@ class UserLoginController extends GetxController {
       if(response.value.status){
         Get.snackbar("Information", "${response.value.userLogin.firstname} ${response.value.message}",  backgroundColor: Colors.green);
 
-        loginSuccess.update((_) {
-          loginSuccess.value.userLogin = response.value.userLogin;
+        user.update((_) {
+          user.value.userLogin = response.value.userLogin;
         });
         Get.off(() => HomeScreen(), transition: Transition.downToUp, duration: Duration(seconds: 3));
       } else {
